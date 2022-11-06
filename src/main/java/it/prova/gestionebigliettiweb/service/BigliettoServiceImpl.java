@@ -13,7 +13,7 @@ public class BigliettoServiceImpl implements BigliettoService {
 	private BigliettoDAO bigliettoDAO;
 
 	@Override
-	public void setBigliettoDao(BigliettoDAO articoloDao) {
+	public void setBigliettoDao(BigliettoDAO bigliettoDAO) {
 		this.bigliettoDAO = bigliettoDAO;
 	}
 

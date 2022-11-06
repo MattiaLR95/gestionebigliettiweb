@@ -10,7 +10,7 @@ public class MyServiceFactory {
 	private static BigliettoService BIGLIETTO_SERVICE_INSTANCE = null;
 	private static BigliettoDAO BIGLIETTODAO_INSTANCE = null;
 
-	public static BigliettoService getArticoloServiceInstance() {
+	public static BigliettoService getBigliettoServiceInstance() {
 		if (BIGLIETTO_SERVICE_INSTANCE == null)
 			BIGLIETTO_SERVICE_INSTANCE = new BigliettoServiceImpl();
 
