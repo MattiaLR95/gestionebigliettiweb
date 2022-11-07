@@ -1,7 +1,11 @@
+<%@page import="org.apache.taglibs.standard.tag.common.xml.ForEachTag"%>
+<%@page import="org.apache.taglibs.standard.tag.common.core.ForEachSupport"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="it.prova.gestionebigliettiweb.model.Biglietto"%>
 <%@page import="java.util.List"%>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="it" class="h-100" >
 	 <head>
@@ -57,21 +61,22 @@
 				                    </tr>
 				                </thead>
 				                <tbody>
-				                	<% List<Biglietto> listaBiglietti = (List<Biglietto>)request.getAttribute("listaBigliettiAttribute");
-				                		for(Biglietto item:listaBiglietti){ %>
+				                	<c:forEach  items="${listaBigliettiAttribute}" var="biglietti">
+				                	<fmt:formatDate value="${biglietti.data}" pattern="dd-MM-yyyy" var="dataFormatted"/>
 				                    <tr >
-				                        <td><%=item.getId() %></td>
-				                        <td><%=item.getProvenienza() %></td>
-				                        <td><%=item.getDestinazione() %></td>
-				                        <td><%=item.getPrezzo() %></td>
-				                        <td><%=item.getData()!=null? new SimpleDateFormat("dd/MM/yyyy").format(item.getData()):"N.D."%></td>
+				                        <td>"${biglietti.id}"</td>
+				                        <td>"${biglietti.provenienza}"</td>
+				                        <td>"${biglietti.destinazione}"</td>
+				                        <td>"${biglietti.prezzo}"</td>
+				                        <td>"${dataFormatted}"</td>
 				                        <td>
-											<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaBigliettoServlet?idBiglietto=<%=item.getId() %>">Visualizza</a>
-											<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareUpdateBigliettoServlet?idBiglietto=<%=item.getId()%>">Edit</a>
-											<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteBigliettoServlet?idBiglietto=<%=item.getId()%>">Delete</a>
+				                        
+											<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaBigliettoServlet?idBiglietto=<c:out value="${biglietti.id}"/>">Visualizza</a>
+											<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareUpdateBigliettoServlet?idBiglietto=<c:out value="${biglietti.id}"/>">Edit</a>
+											<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteBigliettoServlet?idBiglietto=<c:out value="${biglietti.id}"/>">Delete</a>
 										</td>
 				                    </tr>
-				                    <% } %>
+				                   </c:forEach>
 				                    
 				                </tbody>
 				            </table>

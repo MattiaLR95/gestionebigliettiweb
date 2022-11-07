@@ -1,6 +1,8 @@
 <!doctype html>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="it.prova.gestionebigliettiweb.model.Biglietto"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="it" class="h-100" >
 	 <head>
 	 
@@ -29,22 +31,23 @@
 					    <div class='card-body'>
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Provenienza</dt>
-							  <dd class="col-sm-9"><%=bigliettoDaRimuovere.getProvenienza() %></dd>
+							  <dd class="col-sm-9">"${bigliettoDaRimuovere_attr.provenienza}"</dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
-							  <dt class="col-sm-3 text-right">Descrizione:</dt>
-							  <dd class="col-sm-9"><%=bigliettoDaRimuovere.getDestinazione() %></dd>
+							  <dt class="col-sm-3 text-right">Destinazione:</dt>
+							  <dd class="col-sm-9">"${bigliettoDaRimuovere_attr.destinazione}"</dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Prezzo:</dt>
-							  <dd class="col-sm-9"><%=bigliettoDaRimuovere.getPrezzo() %></dd>
+							  <dd class="col-sm-9">"${bigliettoDaRimuovere_attr.prezzo}"</dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Data di Arrivo:</dt>
-							  <dd class="col-sm-9"><%=bigliettoDaRimuovere.getData()!=null? new SimpleDateFormat("dd/MM/yyyy").format(bigliettoDaRimuovere.getData()):"N.D."  %></dd>
+							  <fmt:formatDate value="${bigliettoDaRimuovere_attr.data}" pattern="dd-MM-yyyy" var="dataFormatted"/>
+							  <dd class="col-sm-9">"${dataFormatted}"</dd>
 					    	</dl>
 					    	
 					    </div>
