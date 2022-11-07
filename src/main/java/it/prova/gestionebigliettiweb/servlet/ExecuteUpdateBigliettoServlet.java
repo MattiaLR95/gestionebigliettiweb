@@ -16,7 +16,7 @@ import it.prova.gestionebigliettiweb.utility.UtilityBigliettoForm;
 /**
  * Servlet implementation class ExecuteUpdateBigliettoServlet
  */
-@WebServlet("/ExecuteUpdateBigliettoServlet")
+@WebServlet("/admin/ExecuteUpdateBigliettoServlet")
 public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

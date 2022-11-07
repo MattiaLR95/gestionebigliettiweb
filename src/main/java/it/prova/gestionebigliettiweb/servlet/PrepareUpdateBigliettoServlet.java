@@ -14,7 +14,7 @@ import it.prova.gestionebigliettiweb.service.MyServiceFactory;
 /**
  * Servlet implementation class PrepareUpdateBigliettoServlet
  */
-@WebServlet("/PrepareUpdateBigliettoServlet")
+@WebServlet("/admin/PrepareUpdateBigliettoServlet")
 public class PrepareUpdateBigliettoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
